@@ -9,3 +9,9 @@ export const getNavData = () => {
 export const getFloorData = () => {
   return request.get<Record<string, any>>('api/public/v1/home/floordata')
 }
+export const getCateData = () => {
+  return request.get<Record<string, any>>('api/public/v1/categories')
+}
+export const search = (data: Record<string, any>) => {
+  return request.get<Record<string, any>>('api/public/v1/goods/qsearch', data)
+}

@@ -1,5 +1,8 @@
 <template>
-	<view>
+	<view class="home">
+		<view class="search-box">
+			<mySearch @goToSearch="goToSearch"></mySearch>
+		</view>
 		<swiper class="swiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" circular="true">
 			<swiper-item v-for="(item, index) in swiperList" :key="index">
 				<navigator class="swiper-item" :url="`/subpkg/goodsDetail/goodsDetail?good_id=${item.good_id}`">
@@ -70,12 +73,22 @@
 					default:
 						break;
 				}
+			},
+			goToSearch() {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				})
 			}
 		}
 	}
 </script>
 
 <style lang="less">
+	.search-box {
+		position: sticky;
+		top: 0;
+		z-index: 999;
+	}
 .swiper {
 	height: 330rpx;
 	.swiper-item {
