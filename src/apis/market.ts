@@ -15,3 +15,9 @@ export const getCateData = () => {
 export const search = (data: Record<string, any>) => {
   return request.get<Record<string, any>>('api/public/v1/goods/qsearch', data)
 }
+export const getGoodsData = (data: Record<string, any>) => {
+  return request.get<Record<string, any>>('api/public/v1/goods/search', data)
+}
+export const getGoodsDetail = (data: Record<string, any>) => {
+  return request.get<Record<string, any>>('api/public/v1/goods/detail', data)
+}

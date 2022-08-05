@@ -77,7 +77,12 @@
 					"path": "goodsDetail/goodsDetail"
 				}
 			    ,{
-                    "path" : "goodsList/goodsList"
+                    "path" : "goodsList/goodsList",
+					"style": {
+						"enablePullDownRefresh": true,
+						"onReachBottomDistance": 150,
+						"backgroundColor": "#f8f8f8"
+					}
                 
                 }
                 ,{
@@ -93,5 +98,6 @@
 			// uni-ui 规则如下配置
 			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
 		}
-	}
+	},
+	"lazyCodeLoading": "requiredComponents"
 }
