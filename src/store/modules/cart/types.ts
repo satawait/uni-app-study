@@ -9,3 +9,7 @@ export interface Cart {
 export interface UserState {
 	cart: Cart[]
 }
+export interface NumsObj {
+	id: number,
+	num: number
+}

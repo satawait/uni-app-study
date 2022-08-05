@@ -34,6 +34,7 @@
 </template>
 
 <script lang="ts">
+	import useInfo from '@/composables/useInfo'
 	import { getSwiperData, getNavData, getFloorData } from '@/apis/market'
 	export default {
 		data() {
@@ -81,6 +82,9 @@
 			}
 		}
 	}
+</script>
+<script lang="ts" setup>
+	useInfo()
 </script>
 
 <style lang="less">

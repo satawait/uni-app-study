@@ -24,6 +24,7 @@
 
 <script lang="ts">
 	import { getCateData } from '@/apis/market'
+	import useInfo from '@/composables/useInfo'
 	export default {
 		data() {
 			return {
@@ -65,6 +66,9 @@
 			}
 		}
 	}
+</script>
+<script lang="ts" setup>
+	useInfo()
 </script>
 
 <style lang="less">

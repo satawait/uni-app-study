@@ -33,7 +33,7 @@
 
 <script lang="ts">
 	import { getGoodsDetail } from '@/apis/market'
-	import { mapState, mapMutations, mapGetters } from 'vuex'
+	import { mapState, mapActions, mapGetters } from 'vuex'
 	import { Cart } from '@/store/modules/cart/types'
 	export default {
 		data() {
@@ -116,7 +116,7 @@
 					this.addCart(goods)
 				}
 		  },
-		  ...mapMutations('m_cart', ['addCart'])
+		  ...mapActions('m_cart', ['addCart'])
 		}
 	}
 </script>
