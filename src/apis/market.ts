@@ -21,3 +21,6 @@ export const getGoodsData = (data: Record<string, any>) => {
 export const getGoodsDetail = (data: Record<string, any>) => {
   return request.get<Record<string, any>>('api/public/v1/goods/detail', data)
 }
+export const login = (data: Record<string, any>) => {
+  return request.post<Record<string, any>>('api/public/v1/users/wxlogin', data)
+}

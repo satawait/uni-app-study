@@ -11,7 +11,7 @@ const useInfo = () => {
 		uni.setTabBarBadge({
 			index: 2,
 			text: info.value + ''
-		})
+		}).catch(e => {})
 	}
 	onShow(() => {
 		setBadge()
