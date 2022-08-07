@@ -24,3 +24,12 @@ export const getGoodsDetail = (data: Record<string, any>) => {
 export const login = (data: Record<string, any>) => {
   return request.post<Record<string, any>>('api/public/v1/users/wxlogin', data)
 }
+export const orderCreate = (data: Record<string, any>) => {
+  return request.post<Record<string, any>>('api/public/v1/my/orders/create', data)
+}
+export const reqPayment = (data: Record<string, any>) => {
+  return request.post<Record<string, any>>('api/public/v1/my/orders/req_unifiedorder', data)
+}
+export const checkOrder = (data: Record<string, any>) => {
+  return request.post<Record<string, any>>('api/public/v1/my/orders/chkOrder', data)
+}

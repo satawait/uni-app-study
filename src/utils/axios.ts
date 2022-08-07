@@ -61,12 +61,17 @@ class HttpRequest {
 		  	title: '数据加载中'
 		  })
         // NProgress.start()
-        const authorization = localStorage?.getItem('authorization')
         // if (authorization) {
-        config.headers = {
-          ...config.headers,
-          authorization: `Bearer ${authorization}`
-        }
+			// @ts-ignore
+			// @ts-ignore
+			if (config?.url?.indexOf('/my/') > -1) {
+				const token = JSON.parse(uni.getStorageSync('token')) || ''
+				console.log(config?.url, token)
+				config.headers = {
+				  ...config.headers,
+				  Authorization: token
+				}
+			}
         // }
         const key = config.url + '&' + config.method
         this.removePending(key, true)

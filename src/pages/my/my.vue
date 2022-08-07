@@ -1,6 +1,6 @@
 <template>
 	<view class="my">
-		<myLogin v-if="!auth"></myLogin>
+		<myLogin v-if="!token"></myLogin>
 		<myUserInfo v-else></myUserInfo>
 	</view>
 </template>
@@ -15,7 +15,7 @@
 			};
 		},
 		computed: {
-			...mapState('m_cart', ['auth'])
+			...mapState('m_cart', ['token'])
 		}
 	}
 </script>
@@ -23,6 +23,8 @@
 	useInfo()
 </script>
 
-<style>
-
+<style lang="less">
+page, .my {
+	height: 100%;
+}
 </style>

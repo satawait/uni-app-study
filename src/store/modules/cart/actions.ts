@@ -1,5 +1,5 @@
 import {ActionTree} from 'vuex'
-import { UserState, Cart, NumsObj, Address } from './types'
+import { UserState, Cart, NumsObj, Address, RedirectInfo } from './types'
 import { RootState } from './../types'
 
 const actions: ActionTree<UserState, RootState> = {
@@ -26,6 +26,9 @@ const actions: ActionTree<UserState, RootState> = {
 	},
 	updateToken: async function ({commit, state}, token: string) {
 	    commit('updateToken', token)
+	},
+	updateRedirectInfo: async function ({commit, state}, redirectInfo: RedirectInfo) {
+	    commit('updateRedirectInfo', redirectInfo)
 	}
 }
 

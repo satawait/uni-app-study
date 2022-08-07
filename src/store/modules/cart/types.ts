@@ -10,7 +10,8 @@ export interface UserState {
 	cart: Cart[],
 	address: Address,
 	token: string,
-	userInfo: Record<string, any>
+	userInfo: Record<string, any>,
+	redirectInfo: RedirectInfo | null
 }
 export interface NumsObj {
 	id: number,
@@ -23,4 +24,8 @@ export interface Address {
 	cityName: string,
 	countyName: string,
 	detailInfo: string
+}
+export interface RedirectInfo {
+	openType: string,
+	from: string
 }

@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-	import { mapActions } from 'vuex'
+	import { mapActions, mapState } from 'vuex'
 	import { login } from '@/apis/market'
 	export default {
 		name:"myLogin",
@@ -17,6 +17,9 @@
 			return {
 				
 			};
+		},
+		computed: {
+			...mapState('m_cart', ['redirectInfo'])
 		},
 		methods: {
 			getUserProfile() {
@@ -49,13 +52,30 @@
 							console.log(res)
 							const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo'
 							this.updateToken(token)
+							if (this.redirectInfo?.from) {
+								if (this.redirectInfo.openType === 'switchTab') {
+									uni.switchTab({
+										url: this.redirectInfo.from,
+										success: () => {
+											this.updateRedirectInfo(null)
+										}
+									})
+								} else {
+									uni.navigateTo({
+										url: this.redirectInfo.from,
+										success: () => {
+											this.updateRedirectInfo(null)
+										}
+									})
+								}
+							}
 						}).catch(e => {
 							console.log(e)
 						})
 					}
 				})
 			},
-			...mapActions('m_cart', ['updateUserInfo', 'updateToken'])
+			...mapActions('m_cart', ['updateUserInfo', 'updateToken', 'updateRedirectInfo'])
 		}
 	}
 </script>

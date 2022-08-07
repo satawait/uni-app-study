@@ -1,5 +1,5 @@
 import { MutationTree } from 'vuex'
-import { UserState, Cart, NumsObj, Address } from './types';
+import { UserState, Cart, NumsObj, Address, RedirectInfo } from './types';
 
 const Mutations: MutationTree<UserState> = {
 	addCart(state: UserState, cart: Cart): void {
@@ -49,6 +49,11 @@ const Mutations: MutationTree<UserState> = {
 	updateToken(state: UserState, token: string) {
 		state.token = token
 		this.commit('m_cart/saveToStorage')
+	},
+	updateRedirectInfo(state: UserState, redirectInfo: RedirectInfo) {
+		state.redirectInfo = redirectInfo
+		console.log(state.redirectInfo)
+		// this.commit('m_cart/saveToStorage')
 	},
 	saveToStorage(state) {
 		uni.setStorageSync('cart', JSON.stringify(state.cart))
